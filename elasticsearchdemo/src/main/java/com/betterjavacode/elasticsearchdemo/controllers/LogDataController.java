@@ -23,9 +23,9 @@ public class LogDataController
     }
 
     @GetMapping("/search")
-    public List<LogData> searchLogDataByTerm(@RequestParam("term") String term)
+    public List<LogData> searchLogDataByTerm(@RequestParam("term") String term, @RequestParam("orderby") String orderby, @RequestParam("sort") String sort)
     {
-        return logDataService.findBySearchTerm(term);
+        return logDataService.findBySearchTerm(term, orderby, sort);
     }
 
     @PostMapping
