@@ -1,0 +1,50 @@
+[
+    {
+        "id":"121",
+        "host":"abc.com",
+        "date":"2021-08-21",
+        "message":"This is a test message for elasticsearch",
+        "size":30,
+        "status":"Success"
+        },
+        {
+        "id":"122",
+        "host":"abc.com",
+        "date":"2021-08-15",
+        "message":"This is a test message for elasticsearch",
+        "size":31,
+        "status":"Success"
+        },
+    {
+        "id":"123",
+        "host":"abc.com",
+        "date":"2021-08-22",
+        "message":"This is a test message for elasticsearch",
+        "size":32,
+        "status":"Success"
+    },
+    {
+        "id":"124",
+        "host":"google.com",
+        "date":"2021-08-23",
+        "message":"This is a google message for elasticsearch",
+        "size":33,
+        "status":"Success"
+    },
+    {
+        "id":"125",
+        "host":"lycos.com",
+        "date":"2021-08-24",
+        "message":"This is a lycos message for elasticsearch",
+        "size":34,
+        "status":"Success"
+    },
+    {
+        "id":"127",
+        "host":"search.yahoo.com",
+        "date":"2021-08-26",
+        "message":"This is a yahoo message for elasticsearch",
+        "size":35,
+        "status":"Success"
+    }
+]

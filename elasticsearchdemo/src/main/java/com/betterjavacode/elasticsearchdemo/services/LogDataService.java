@@ -37,10 +37,7 @@ public class LogDataService
 
     public List<LogData> findBySearchTerm (String term, String orderby, String sort)
     {
-        System.out.println("=== sort === ");
-        System.out.println(sort);
         Sort.Direction dir = ((sort.equals("asc")) ? Sort.Direction.ASC : Sort.Direction.DESC);
-        System.out.println(dir);
 
         return logDataRepository.findByMessageContaining(term, Sort.by(dir, orderby));
     }

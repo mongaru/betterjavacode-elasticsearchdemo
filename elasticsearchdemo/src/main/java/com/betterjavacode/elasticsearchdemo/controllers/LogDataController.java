@@ -31,7 +31,6 @@ public class LogDataController
     @PostMapping
     public LogData addLogData(@RequestBody LogData logData)
     {
-
         return logDataService.createLogDataIndex(logData);
     }
 

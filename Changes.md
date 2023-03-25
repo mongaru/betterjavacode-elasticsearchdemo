@@ -5,7 +5,19 @@ This is a fork of the blog https://betterjavacode.com
 
 ## How to setup
 
-
+- Setup local [Jdk 11] and [Gradle 8.0.2]
+- Download and run [Elasticsearch 8.6.2]
+- Modify the setup of Elasticsearch to remove the usage of https.
+    - elasticsearch.yml: 
+        - xpack.security.http.ssl:
+        - enabled: false
+- Restart Elasticsearch and test http://localhost:9200/ in Postman.
+- Modify the class ElasticsearchClientConfiguration, to include the basic auth configuration.
+- Modify the interface LogDataRepository to include the @Repository annotation.
+- Modify the main class ElasticsearchdemoApplication to add the @ComponentScan(basePackages = {"com.betterjavacode.elasticsearchdemo"}) annotation.
+- Modify ElasticsearchClientConfiguration to include the compatibilty headers: "application/vnd.elasticsearch+json;compatible-with=7".
+- In the terminal run ./gradlew bbotrun
+- Test the endpoint http://localhost:8080/v1/betterjavacode/logdata?host=abc.com to ensure the REST API and Elasticsearch are talking.
 
 Please check the endpoints provided by the service and find those responsible for:
 1 - Indexing new documents into ElasticSearch.
@@ -49,4 +61,6 @@ curl -v "http://localhost:8080/v1/betterjavacode/logdata/search?term=this&orderb
 Notes
 - I included more entries to data to test different filters.
 - The Elasticsearch service does not like to use the text and id properties to sort the results, the error is: "ElasticsearchException: Elasticsearch exception [type=illegal_argument_exception, reason=Fielddata is disabled on [status] in [logdataindex]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default."
+- The biggest challenge of the project was to ensure that the repository could communicate with the Elasticsearch service due to a version compatibility and authentication.
+- Improvements can be done to not have the credentials of the Elasticsearch service in the ElasticsearchClientConfiguration class. I prioritized unit testing to configuration management in this case.
 
