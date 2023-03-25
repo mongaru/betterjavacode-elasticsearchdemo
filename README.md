@@ -8,9 +8,9 @@ This is a fork of the blog https://betterjavacode.com
 - Setup local [Jdk 11] and [Gradle 8.0.2]
 - Download and run [Elasticsearch 8.6.2]
 - Modify the setup of Elasticsearch to remove the usage of https.
--- elasticsearch.yml: 
-    xpack.security.http.ssl:
-        enabled: false
+    - elasticsearch.yml: 
+        - xpack.security.http.ssl:
+        - enabled: false
 - Restart Elasticsearch and test http://localhost:9200/ in Postman.
 - Modify the class ElasticsearchClientConfiguration, to include the basic auth configuration.
 - Modify the interface LogDataRepository to include the @Repository annotation.
